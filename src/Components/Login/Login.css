@@ -1,0 +1,91 @@
+.package{
+    width: 430px;
+    background-color:white;
+    left: 0;
+    right: 0;
+    bottom: 20;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 30px 40px;
+    border-radius: 10px;
+    position: center;
+    
+}
+.package h1{
+    font-family: 'Times New Roman', Times, serif ;
+    font-size: 40px;
+    text-align: left;
+
+}
+.package .input{
+    position: relative;
+    width: 100%;
+    height: 50px;
+    background-color: white;
+    margin: 30px 0;
+    
+}
+.input input{
+    padding: 20px 45px 20px 20px;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    outline: rgb(21, 21, 141);
+    border: none;
+    border: 2px solid ;
+    border-radius: 40px;
+}
+.input input::placeholder{
+    color:white;
+
+}
+.input icon{
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 17px;
+}
+.package .Forgot-recovery{
+    margin: -15px 0 15px;
+    justify-content: space-between;
+    font-size: 15px;
+    display: flex;
+}
+.Forgot-recovery label input{
+    accent-color: white;
+    margin-right: 4px;
+}
+.Forgot-recovery a{
+    color: black;
+    text-decoration: none;
+
+}
+.package button{
+    width: 100%;
+    height: 45px;
+    background: rgb(29, 9, 108);
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    cursor: pointer;
+    font-size: 17px;
+    color: white;
+    font-weight: 800;
+    
+
+     
+}
+.package .Google-sign .p{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 7px;
+    color: rgb(114, 110, 114);
+    text-decoration: line-through;
+    position: center;
+    margin:left right auto;
+}
+.Google-sign button{
+    background-color: aliceblue;
+    color: rgb(17, 17, 115);
+
+}

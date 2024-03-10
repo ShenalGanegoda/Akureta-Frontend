@@ -1,0 +1,141 @@
+.view-analysis-main {
+  position: relative;
+  width: 80vw;
+  margin-left: 30vw;
+  height: fit-content;
+  display: flex;
+  float: right;
+}
+.left-container {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 60%;
+  height: fit-content;
+  display: inline-flex;
+  flex-direction: column;
+}
+.right-containter {
+  max-width: 50vw;
+}
+.review-top {
+  width: 60vw;
+  display: flex;
+  flex-direction: row;
+}
+.review-bottum-top {
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  gap: 10vh;
+}
+.review-bottum {
+  width: 45vw;
+  margin: 2vh;
+  padding: 4vh;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 10px;
+  border: 2px solid blue;
+}
+.employeeHeading,
+.productReviewHeading,
+.topRatedProductHeading,
+.negativeCommentsHeading,
+.topRatedEmployeeHeading {
+  text-align: center;
+  margin-bottom: vh;
+  margin: 0vw 1vw;
+  height: fit-content;
+  width: 15vw;
+  padding: 1vh 2vh;
+  border-bottom: 2px solid blue;
+}
+.employeeHeading h5,
+.productReviewHeading h5,
+.topRatedProduct h5,
+.avgNegativeComments h5,
+.topRatedEmployeeHeading h5,
+.customerSatisfactionHeading h5,
+.mostHelpfulReviewHeading h5 {
+  font-size: 1.8vh;
+  color: grey;
+  display: inline;
+  font-family: sans-serif;
+}
+.employeeReviews,
+.productReviews,
+.overview,
+.topRatedProduct,
+.avgNegativeComments,
+.topRatedEmployee,
+.reviewsOverview {
+  max-width: 30vw;
+  height: fit-content;
+  background-color: white;
+  margin: 5vh;
+  border: 2px solid rgb(22, 3, 235);
+  border-radius: 10px;
+}
+
+.employeeReviews h1,
+.productReviews h1,
+.totalProductReviews h1,
+.avgNegativeComments h1 {
+  padding: 6vh 2vh;
+  color: rgb(0, 0, 156);
+  font-family: sans-serif;
+  margin: 0;
+  text-align: center;
+  font-size: 15vh;
+}
+.topRatedProduct,
+.avgNegativeComments,
+.topRatedEmployee {
+  text-align: center;
+  background-color: rgb(245, 245, 245);
+  border-radius: 10px;
+  padding: 2vh;
+  box-shadow: 3px 3px 10px grey;
+}
+.customerSatisfaction {
+  text-align: center;
+  background-color: rgb(245, 245, 245);
+  padding: 2vh;
+  box-shadow: 3px 3px 10px grey;
+  clear: both; /* Ensure the element clears both left and right floats */
+}
+.most-helpful-reviews {
+  background-color: rgb(245, 245, 245);
+  box-shadow: 3px 3px 10px rgb(216, 216, 216);
+  padding: 6vh;
+  clear: both;
+}
+.avgNegativeComments h1,
+.customerSatisfaction h1 {
+  color: black;
+}
+
+.topRatedProduct img,
+.topRatedEmployee img {
+  margin-top: 2vh;
+  max-width: 10vw;
+  text-align: center;
+  border: 4px solid blue;
+  border-radius: 50%;
+}
+.topRatedProduct h6,
+.topRatedEmployee h6 {
+  font-family: sans-serif;
+  color: grey;
+}
+.stars img {
+  margin: 0vw 0.3vw;
+  display: inline;
+  width: 1vw;
+  border-radius: 0%;
+  border: none;
+}
+.customerSatisfaction h1 {
+  text-align: center;
+}

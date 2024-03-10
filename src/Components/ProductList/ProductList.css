@@ -1,0 +1,41 @@
+.product-list-main {
+  padding: 2vw;
+  width: 78vw;
+  margin-left: 20vw;
+  display: flex;
+  flex-direction: column;
+}
+.product-list-heading {
+  padding-bottom: 2vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.product-list-heading h1 {
+  font-family: sans-serif;
+  color: rgb(19, 0, 188);
+}
+.product-list {
+  margin-top: 2vh;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.addProducts-btn {
+  font-size: 1.3vw;
+  width: 9vw;
+  color: rgb(19, 0, 188);
+  background-color: transparent;
+  border-radius: 10px;
+  border: 2px solid rgb(19, 0, 188);
+  transition: all 0.2s ease-in-out;
+}
+.addProducts-btn:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+.addProducts-btn:active {
+  background-color: rgb(19, 0, 188);
+  border: none;
+  color: white;
+}

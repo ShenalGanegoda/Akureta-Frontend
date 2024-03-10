@@ -1,0 +1,73 @@
+.qr-main {
+  width: 78vw;
+  float: right;
+  display: flex;
+  flex-direction: column;
+  gap: 3vh;
+  padding: 3vh;
+}
+.qr-main h1 {
+  font-family: sans-serif;
+  text-align: center;
+}
+.employee-section,
+.product-section {
+  display: flex;
+  flex-direction: column;
+  gap: 2vh;
+}
+.employee-section label,
+.product-section label {
+  font-size: 2vh;
+  font-size: 3vh;
+  font-family: "Roboto", sans-serif;
+  font-weight: 100;
+  font-style: normal;
+}
+
+.employee-section select,
+.product-section select {
+  width: 95%;
+  font-size: 2vh;
+  padding: 1vh;
+}
+.employee-section select option,
+.product-section select option {
+  font-size: 2vh;
+  padding: 1vh;
+}
+.employee-section select option:hover,
+.product-section select option:hover {
+  cursor: pointer;
+  background-color: grey;
+  color: white;
+}
+.employee-section h2,
+.product-section h2 {
+  font-family: "Roboto", sans-serif;
+}
+.form-submit {
+  margin: auto;
+  width: 30vw;
+  height: 5vh;
+  font-family: "Roboto", sans-serif;
+  font-size: 2.5vh;
+  color: white;
+  background-color: rgb(14, 0, 140);
+  border: none;
+  border-radius: 10px;
+  transition: all 0.3s ease-in-out;
+  margin-bottom: 5vh;
+}
+.form-submit:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+}
+.qr-display {
+  margin: auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

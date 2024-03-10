@@ -1,0 +1,96 @@
+.main {
+  width: 84.5vw;
+  margin-left: 30vw;
+  height: 60vh;
+  background-color: white;
+  float: right;
+}
+
+.details_panel {
+  max-width: 73vw;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  padding-bottom: 1vh;
+  border-bottom: 1px solid rgb(70, 70, 70);
+  background-color: rgb(255, 255, 255);
+}
+.employee_details {
+  padding: 2vh 0;
+  display: inline-flex;
+  flex-wrap: wrap;
+}
+
+.details_panel img {
+  padding: 2vh 0vh;
+  max-width: 25vw;
+  margin-right: 5vh;
+}
+.data_block {
+  display: inline;
+  padding-bottom: 1vh;
+  width: 45vw;
+  border-bottom: 1px solid rgb(70, 70, 70);
+}
+.data_block h1 {
+  font-size: 6vh;
+  font-family: sans-serif;
+  margin-bottom: 2vh;
+  color: black;
+}
+.data_block .stars {
+  font-size: 3vh;
+}
+.review_block {
+  flex-wrap: wrap;
+  width: 35vw;
+  height: auto;
+  display: inline-flex;
+  justify-content: space-between;
+}
+.review_decriptions,
+.review_results {
+  display: flex;
+  flex-direction: column;
+}
+.review_decriptions h5,
+.review_results span {
+  font-size: 2vh;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.review_decriptions h5 {
+  margin: 0;
+}
+.despcription_block {
+  width: 45vw;
+  padding: 2vh 0vh;
+  border-bottom: 1px solid rgb(70, 70, 70);
+}
+.despcription_block p {
+  font-size: 2vh;
+  color: black;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.review_block {
+  margin-top: 3vh;
+}
+.stars {
+  padding: 0;
+  width: 20vw;
+  display: inline;
+}
+.stars img {
+  width: 5vh;
+}
+.total_review_label,
+.total_reviews {
+  color: black;
+}
+.positive_reviews,
+.positive_reviews_label {
+  color: green;
+}
+.negative_reviews,
+.negative_reviews_label {
+  color: red;
+}

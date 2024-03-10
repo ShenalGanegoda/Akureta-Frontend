@@ -1,0 +1,39 @@
+.header {
+  float: right;
+  display: inline-flex;
+  align-items: center;
+  justify-content: end;
+  background-color: rgb(14, 0, 140);
+  width: 80vw;
+  height: 14vh;
+}
+.header li {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2vh 4vh;
+  font-size: 4vh;
+}
+.header img {
+  display: none;
+  padding: 0vh 2vh;
+}
+
+.header li a {
+  color: rgb(255, 255, 255);
+  transition: all 0.5s ease;
+}
+.header li a:hover {
+  color: rgb(0, 157, 255);
+  transform: scale(1.2);
+}
+@media (max-width: 769px) {
+  .header {
+    width: 100vw;
+    float: clear;
+    justify-content: space-between;
+  }
+  .header img {
+    display: block;
+  }
+}
