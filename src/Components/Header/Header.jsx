@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 import "./Header.css";
 import { TiHome } from "react-icons/ti";
 import home_icon from "../../Assets/home_icon.svg";

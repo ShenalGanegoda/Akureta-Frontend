@@ -2,7 +2,7 @@
   float: right;
   display: inline-flex;
   align-items: center;
-  justify-content: end;
+  justify-content: flex-end;
   background-color: rgb(14, 0, 140);
   width: 80vw;
   height: 14vh;
@@ -23,10 +23,12 @@
   color: rgb(255, 255, 255);
   transition: all 0.5s ease;
 }
+
 .header li a:hover {
   color: rgb(0, 157, 255);
   transform: scale(1.2);
 }
+
 @media (max-width: 769px) {
   .header {
     width: 100vw;

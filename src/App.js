@@ -1,11 +1,6 @@
+// eslint-disable-next-line no-unused-vars
 import "./App.css";
-import {
-  BrowserRouter,
-  Routes,
-  Route,
-  renderMatches,
-  useLocation,
-} from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ViewAnalysis from "../src/Pages/ViewAnalysis";
 import AddReview from "../src/Pages/AddReview";
 import Navigation from "./Components/Navigation/Navigation";
