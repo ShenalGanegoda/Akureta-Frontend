@@ -43,7 +43,7 @@ class AddEmployee extends React.Component {
 
       // Making an HTTP POST request to the backend endpoint using Axios.
       const response = await axios.post(
-        "http://localhost:4000/employeesignup",
+        "https://akureta-backend.onrender.com/employeesignup",
         jsonData,
         {
           headers: {

@@ -23,7 +23,7 @@ class AddProduct extends React.Component {
   handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      // Create an object with the form data
+      // Creating an object with the form data
       const formData = {
         productName: this.state.productName,
         category: this.state.category,
@@ -36,7 +36,7 @@ class AddProduct extends React.Component {
 
       // Make an HTTP POST request to the backend endpoint using Axios
       const response = await axios.post(
-        "http://localhost:4000/addProduct",
+        "https://akureta-backend.onrender.com/addProduct",
         jsonData,
         {
           headers: {
