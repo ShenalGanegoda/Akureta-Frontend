@@ -105,7 +105,7 @@ class AddProduct extends React.Component {
           </label>
 
           <label>
-            ADD IMAGE HERE:
+            ADD IMAGE:
             <input
               type="file"
               accept="image/*"
