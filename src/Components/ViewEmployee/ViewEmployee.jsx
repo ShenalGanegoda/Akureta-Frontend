@@ -8,7 +8,7 @@ export default function ViewEmployee({ selectedEmployee }) {
         <div className="main-top">
           <img src={selectedEmployee.image} alt="Employee Image"></img>
           <div className="employee-details">
-            <h1>{selectedEmployee.name}</h1>
+            <h1>{selectedEmployee.employeeName}</h1>
             <div className="stars">
               <StarRating rating={selectedEmployee.rating} />
             </div>

@@ -1,11 +1,7 @@
 import "./ProductList.css";
-import food1 from "../../Assets/biriyani.jpg";
-import food2 from "../../Assets/food1.jpg";
-import food3 from "../../Assets/food2.jpg";
-import food4 from "../../Assets/food3.jpeg";
-import food5 from "../../Assets/food4.jpg";
 import ProductCard from "../ProductCard/ProductCard";
 import axios from "axios";
+
 
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
