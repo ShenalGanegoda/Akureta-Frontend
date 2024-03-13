@@ -19,7 +19,7 @@ class AddEmployee extends React.Component {
   // Method to handle changes in input fields
   handleInput = (event) => {
     const { name, value } = event.target;
-    this.setState({ [name]: value }); // Use [name] to dynamically set state property
+    this.setState({ [name]: value });
   };
 
   // Method to handle review submissions
