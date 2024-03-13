@@ -14,7 +14,7 @@ export default function ViewEmployee({ selectedEmployee }) {
             </div>
 
             <hr />
-            <p>{selectedEmployee.description}</p>
+            <p>{selectedEmployee.aboutEmployee}</p>
             <hr />
 
             <div className="review-analysis">
