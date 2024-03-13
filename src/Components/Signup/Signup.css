@@ -55,7 +55,7 @@
 .package button {
   width: 100%;
   height: 45px;
-  background: rgb(29, 9, 108);
+  background: rgb(14, 0, 140);
   border: none;
   outline: none;
   border-radius: 3px;
@@ -64,4 +64,10 @@
   color: white;
   font-weight: 800;
   margin-top: 30px;
+}
+
+.icon {
+  padding-top: 4px;
+  font-size: large;
+  color: rgb(0, 0, 122);
 }
