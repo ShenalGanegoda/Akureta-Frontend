@@ -2,7 +2,6 @@ import "./ProductList.css";
 import ProductCard from "../ProductCard/ProductCard";
 import axios from "axios";
 
-
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 
