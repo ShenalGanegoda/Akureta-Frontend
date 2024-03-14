@@ -23,7 +23,7 @@ export default function GenerateQR() {
   };
 
   const onSubmit = () => {
-    let pathTo = `/review/${employee}/${foodItems}`;
+    let pathTo = `https://akureta.netlify.app/review/${employee}/${foodItems}`;
     setUrl(pathTo);
     setQrIsVisible(true);
   };
