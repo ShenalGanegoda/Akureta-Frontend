@@ -10,7 +10,7 @@ export default function ProductCard({ product, setProduct }) {
     try {
       // Sending a DELETE request to the backend API
       await axios.delete(
-        `https://akureta-backend.onrender.com/products/${product.id}`
+        `https://akureta-backend.onrender.com/products/${product._id}`
       );
       console.log("Product removed successfully");
     } catch (error) {
@@ -28,7 +28,7 @@ export default function ProductCard({ product, setProduct }) {
         <button className="view-btn" onClick={() => handleViewProduct()}>
           View Analysis
         </button>
-        <button className="remove-btn" onClick={() => handleRemoveProduct}>
+        <button className="remove-btn" onClick={() => handleRemoveProduct()}>
           Remove
         </button>
       </div>
