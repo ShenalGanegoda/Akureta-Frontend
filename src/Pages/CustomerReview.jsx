@@ -5,7 +5,7 @@ export default function CustomerReview() {
   const { employee, foodItems } = useParams();
 
   const foodArray = foodItems.split(",");
-  
+
   return (
     <div>
       <h1>Customer Review</h1>
