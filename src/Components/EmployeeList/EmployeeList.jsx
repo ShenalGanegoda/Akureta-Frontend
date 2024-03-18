@@ -25,9 +25,13 @@ export default function EmployeeList({ setEmployee }) {
     <div className="employee-list-main">
       <div className="employee-list-heading">
         <h1>Employees</h1>
-        <Link to="/addemployee" className="addEmployees-btn">
-          Add Employees
-        </Link>
+        
+          <Link to="/addemployee" >
+          <button className="addEmployees-btn">
+            Add Employees
+            </button>
+          </Link>
+        
       </div>
       <hr />
       <div className="employee-list">

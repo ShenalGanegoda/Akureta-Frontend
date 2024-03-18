@@ -28,8 +28,8 @@ export default function ProductList({ setProduct }) {
     <div className="product-list-main">
       <div className="product-list-heading">
         <h1>Products</h1>
-        <Link to="/addproduct" className="addProducts-btn">
-          Add Products
+        <Link to="/addproduct">
+          <button className="addProducts-btn">Add Products</button>
         </Link>
       </div>
       <hr />

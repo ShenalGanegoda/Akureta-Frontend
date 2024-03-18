@@ -22,12 +22,13 @@
   flex-wrap: wrap;
 }
 .addProducts-btn {
-  font-size: 1.3vw;
-  width: 9vw;
-  color: rgb(19, 0, 188);
-  background-color: transparent;
+  font-size: 1.2vw;
+  padding: 0.5vw;
+  width: 10vw;
+  color: white;
+  background-color: rgb(37, 17, 223);
   border-radius: 10px;
-  border: 2px solid rgb(19, 0, 188);
+  border: none;
   transition: all 0.2s ease-in-out;
 }
 .addProducts-btn:hover {
