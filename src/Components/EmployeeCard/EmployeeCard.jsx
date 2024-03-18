@@ -23,7 +23,7 @@ export default function EmployeeCard({
       );
       console.log("Employee removed successfully", employee);
       setIsModalOpen(false); // Closing the modal after deletion
-      updateEmployeeList(); // Update the list of employees in the parent component
+      updateEmployeeList(); // Updating the list of employees in the parent component
     } catch (error) {
       console.error("Error removing employee:", error);
       setError("Failed to remove employee. Please try again."); // Set error state
