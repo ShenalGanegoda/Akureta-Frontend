@@ -8,13 +8,17 @@ export default function CustomerReview() {
   const [displayHeaderAndNavbar, setDisplayHeaderAndNavbar] = useState (true);
 
   useEffect (() => {
-
+    
+  console.log('useEffect is running');
     const params = new URLSearchParams(window.location.search);
     const fromQR = params.get('fromQR');
+    console.log('fromQR',fromQR);
     if (fromQR === 'true') {
+      console.log('Set displayHeaderAndNavbar to false')
       setDisplayHeaderAndNavbar(false);
     }
   },[])
+
   console.log('displayHeaderAndNavbar',displayHeaderAndNavbar); 
   
   return (
