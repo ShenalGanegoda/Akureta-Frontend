@@ -29,6 +29,7 @@ function App() {
         <Routes>
           {isSignedIn ? (
             <>
+              <Route path="/" element={<ViewAnalysis />} />
               <Route path="/generate-qr" element={<GenerateQR />} />
               <Route path="/view-analysis" element={<ViewAnalysis />} />
               <Route path="/add-reviews" element={<AddReview />} />
