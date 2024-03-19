@@ -1,14 +1,36 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./GenerateQR.css";
 import QRCode from "react-qr-code";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 export default function GenerateQR() {
+  const [employees, setEmployees] = useState([]);
+  const [products, setProducts] = useState([]);
   const [employee, setEmployee] = useState("");
-  const [foodItems, setfoodItems] = useState([]);
-
+  const [foodItems, setFoodItems] = useState([]);
   const [url, setUrl] = useState("");
   const [qrIsVisible, setQrIsVisible] = useState(false);
+
+  useEffect(() => {
+    // Fetch employees and products from the backend when the component mounts
+    const fetchData = async () => {
+      try {
+        const employeeResponse = await axios.get(
+          "https://akureta-backend.onrender.com/employeesignup"
+        );
+        const productResponse = await axios.get(
+          "https://akureta-backend.onrender.com/getProducts"
+        );
+        setEmployees(employeeResponse.data);
+        setProducts(productResponse.data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   const onEmployeeSelect = (event) => {
     setEmployee(event.target.value);
@@ -16,14 +38,14 @@ export default function GenerateQR() {
 
   const onFoodSelect = (event) => {
     if (foodItems.includes(event.target.value)) return;
-
-    setfoodItems((currentFoodItems) => {
-      return [...currentFoodItems, event.target.value];
-    });
+    setFoodItems((currentFoodItems) => [
+      ...currentFoodItems,
+      event.target.value,
+    ]);
   };
 
   const onSubmit = () => {
-    let pathTo = `https://akureta.netlify.app/review/${employee}/${foodItems}`;
+    let pathTo = `/review/${employee}/${foodItems}`;
     setUrl(pathTo);
     setQrIsVisible(true);
   };
@@ -34,24 +56,24 @@ export default function GenerateQR() {
       <form>
         <div className="employee-section">
           <label>Select Employee:</label>
-          <select onChange={onEmployeeSelect} name="cars" id="cars" multiple>
-            <option value="Mary">Mary</option>
-            <option value="John">John</option>
-            <option value="Lisa">Lisa</option>
-            <option value="Mat">Mat</option>
+          <select onChange={onEmployeeSelect} value={employee}>
+            {employees.map((emp) => (
+              <option key={emp.id} value={emp.name}>
+                {emp.name}
+              </option>
+            ))}
           </select>
-          <h2>{employee}</h2>
         </div>
 
         <div className="product-section">
           <label>Select Food:</label>
-          <select onChange={onFoodSelect} name="cars" id="cars" multiple>
-            <option value="Fried Rice">Fried Rice</option>
-            <option value="Kottu">Kottu</option>
-            <option value="Salad">Salad</option>
-            <option value="Pizza">Pizza</option>
+          <select onChange={onFoodSelect} multiple>
+            {products.map((prod) => (
+              <option key={prod.id} value={prod.name}>
+                {prod.name}
+              </option>
+            ))}
           </select>
-          <h2>{foodItems}</h2>
         </div>
       </form>
 
