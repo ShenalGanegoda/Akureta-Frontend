@@ -9,7 +9,7 @@ class AddProduct extends React.Component {
       productName: "",
       category: "",
       aboutProduct: "",
-      image: null,
+      image: "",
     };
   }
 
@@ -67,8 +67,15 @@ class AddProduct extends React.Component {
   handleImage = (e) => {
     const file = e.target.files[0];
     this.setState({ image: file });
+    const reader = new FileReader();
+  
+    reader.onloadend = () => {
+      //Convert the file to a Base64 string
+      const imageData = reader.result.split(",")[1];
+      this.setState({image:imageData})
+    };
+    reader.readAsDataURL(file);
   };
-
   render() {
     return (
       <div className="add-product">
