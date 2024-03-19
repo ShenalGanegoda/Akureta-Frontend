@@ -1,8 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 import "./Header.css";
 import { TiHome } from "react-icons/ti";
-import home_icon from "../../Assets/home_icon.svg";
-import bell_icon from "../../Assets/bell_icon.svg";
+import { Link } from "react-router-dom";
 import accounts_icon from "../../Assets/account_icon.svg";
 import { FaBell } from "react-icons/fa";
 import { FaUserCircle } from "react-icons/fa";
@@ -11,15 +10,10 @@ function Header() {
   return (
     <div className="header">
       <ul>
-        <li>
-          <a href="/view-analysis">
+        <li className="home-icon">
+        <Link style={{ textDecoration: "none" }} to="/view-analysis">
             <TiHome />
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            <FaBell />
-          </a>
+          </Link>
         </li>
         <li>
           <a href="#">
