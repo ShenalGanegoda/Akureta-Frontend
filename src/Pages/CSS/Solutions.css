@@ -1,0 +1,29 @@
+.solutions-main {
+    padding: 2vw;
+    width: 78vw;
+    margin-left: 20vw;
+    display: flex;
+    flex-direction: column;
+    font-family: sans-serif;
+}
+
+.solutions-title {
+    text-align: center;
+    margin-bottom: 16px;
+}
+
+.solutions-card {
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
+
+.solutions-card-title {
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.solutions-card-body {
+    background-color: #ccc;
+    padding: 16px;
+    font-style: italic;
+}

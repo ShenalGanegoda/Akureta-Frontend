@@ -54,6 +54,15 @@ const Navigation = () => {
               Employees{menu === "employees" ? <FaAngleRight /> : null}
             </li>
           </Link>
+          <Link style={{ textDecoration: "none" }} to="/solutions">
+            <li
+              onClick={() => {
+                setMenu("solutions");
+              }}
+            >
+              Solutions{menu === "solutions" ? <FaAngleRight /> : null}
+            </li>
+          </Link>
         </ul>
       </div>
     </>

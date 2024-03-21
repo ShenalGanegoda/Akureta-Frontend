@@ -13,6 +13,7 @@ import AddEmployees from "./Pages/AddEmployeePage";
 import AddProducts from "./Pages/AddProductPage";
 import SignupPage from "./Pages/LoginSignupPage";
 import CustomerReview from "./Pages/CustomerReview";
+import Solutions from "./Pages/Solutions";
 import { useState } from "react";
 
 function App() {
@@ -37,6 +38,7 @@ function App() {
               <Route path="/employees" element={<Employees />} />
               <Route path="/addemployee" element={<AddEmployees />} />
               <Route path="/addproduct" element={<AddProducts />} />
+              <Route path="/solutions" element={<Solutions />} />
               <Route
                 path="/review/:employee/:foodItems"
                 element={<CustomerReview />}
