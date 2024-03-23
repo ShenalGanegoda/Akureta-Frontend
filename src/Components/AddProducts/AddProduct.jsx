@@ -3,6 +3,7 @@ import axios from "axios";
 import "./AddProduct.css";
 
 class AddProduct extends React.Component {
+
   constructor(props) {
     super(props);
     this.state = {
@@ -64,22 +65,19 @@ class AddProduct extends React.Component {
   };
 
   // Method to handle image upload procedure
-  handleImage = (e) => {
+  handleImage = async (e) => {
     const file = e.target.files[0];
-    this.setState({ image: file });
-    const reader = new FileReader();
-  
-    reader.onloadend = () => {
-      //Convert the file to a Base64 string
-      const imageData = reader.result.split(",")[1];
-      this.setState({image:imageData})
-    };
-    reader.readAsDataURL(file);
+    const base64 = await convertToBase64(file)
+    console.log(base64)
+    this.setState({ image: base64 });
   };
+
+
   render() {
     return (
+      <div className="add-products-container">
       <div className="add-product">
-        <h1>AKURETA</h1>
+        <h1>ADD PRODUCTS</h1>
         <form onSubmit={this.handleSubmit}>
           <label>
             PRODUCT NAME:
@@ -122,7 +120,22 @@ class AddProduct extends React.Component {
           <button type="submit">Submit</button>
         </form>
       </div>
+      </div>
     );
   }
 }
 export default AddProduct;
+
+function convertToBase64(file){
+  return new Promise((resolve, reject) => {
+    const fileReader = new FileReader()
+    fileReader.readAsDataURL(file)
+    fileReader.onload = () =>{
+      resolve(fileReader.result)
+    };
+    fileReader.onerror = (error) => {
+      reject(error)
+    }
+  })
+
+}

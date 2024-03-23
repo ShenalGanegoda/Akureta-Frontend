@@ -1,26 +1,30 @@
 .product-card-container {
   margin: 0.5vh;
+  padding: 1vw;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 45vh;
-  width: 24vw;
-  border: 2px solid rgb(19, 0, 188);
-  border-radius: 20px;
+  height: fit-content;
+  width: fit-content;
+  border: 3px solid rgb(19, 0, 188);
+  border-radius: 10px;
   background-color: #e3e3e3;
   gap: 2vh;
 }
 .product-card-container h2 {
   font-family: "Roboto", sans-serif;
 }
-.product-card-container img {
-  border-radius: 20%;
-  padding: 0 20px;
-  width: 100%;
-  height: 60%;
+.product-card-img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20vw;
 }
-
+.product-card-img img {
+  width: 100%;
+  border-radius: 50%;
+}
 .product-card-buttons {
   width: 100%;
   display: flex;

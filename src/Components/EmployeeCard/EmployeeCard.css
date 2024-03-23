@@ -1,26 +1,31 @@
 .employee-card-container {
+  padding: 1vw;
   margin: 0.5vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 45vh;
-  width: 24vw;
-  border: 2px solid rgb(19, 0, 188);
-  border-radius: 20px;
+  height: fit-content;
+  width: fit-content;
+  border: 3px solid rgb(19, 0, 188);
+  border-radius: 10px;
   background-color: #e3e3e3;
   gap: 2vh;
 }
+.employee-card-container-img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20vw;
+}
+.employee-card-container-img img {
+  width: 60%;
+  border-radius: 50%;
+}
 .employee-card-container h2 {
   font-family: "Roboto", sans-serif;
+  font-size: 1.5vw;
 }
-.employee-card-container img {
-  border-radius: 20%;
-  padding: 0 20px;
-  width: 100%;
-  height: 60%;
-}
-
 .card-buttons {
   width: 100%;
   display: flex;

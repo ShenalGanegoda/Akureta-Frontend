@@ -74,15 +74,18 @@ class AddEmployee extends React.Component {
   };
 
   // Method to handle image upload procedure
-  handleImage = (e) => {
+  handleImage = async (e) => {
     const file = e.target.files[0];
-    this.setState({ image: file });
+    const base64 = await convertToBase64(file)
+    console.log(base64)
+    this.setState({ image: base64 });
   };
 
   render() {
     return (
+      <div className="add-employee-container">
       <div className="add-employee">
-        <h1>AKURETA</h1>
+        <h1>ADD EMPLOYEES</h1>
         <form onSubmit={this.handleSubmit}>
           <label>
             EMPLOYEE NAME:
@@ -153,7 +156,22 @@ class AddEmployee extends React.Component {
           <button type="submit">Submit</button>
         </form>
       </div>
+      </div>
     );
   }
 }
 export default AddEmployee;
+
+function convertToBase64(file){
+  return new Promise((resolve, reject) => {
+    const fileReader = new FileReader()
+    fileReader.readAsDataURL(file)
+    fileReader.onload = () =>{
+      resolve(fileReader.result)
+    };
+    fileReader.onerror = (error) => {
+      reject(error)
+    }
+  })
+
+}
