@@ -58,8 +58,8 @@ export default function GenerateQR() {
           <label>Select Employee:</label>
           <select onChange={onEmployeeSelect} value={employee}>
             {employees.map((emp) => (
-              <option key={emp.id} value={emp.name}>
-                {emp.name}
+              <option key={emp.id} value={emp.employeeName}>
+                {emp.employeeName}
               </option>
             ))}
           </select>
@@ -69,8 +69,8 @@ export default function GenerateQR() {
           <label>Select Food:</label>
           <select onChange={onFoodSelect} multiple>
             {products.map((prod) => (
-              <option key={prod.id} value={prod.name}>
-                {prod.name}
+              <option key={prod.id} value={prod.productName}>
+                {prod.productName}
               </option>
             ))}
           </select>
