@@ -14,6 +14,10 @@ import AddProducts from "./Pages/AddProductPage";
 import SignupPage from "./Pages/LoginSignupPage";
 import CustomerReview from "./Pages/CustomerReview";
 import { useState } from "react";
+import "./App.css";
+import Signup from "./Pages/Register";
+import LoginPage from './Pages/Login';
+import AdminPanel from './Pages/AdminPanel';
 
 function App() {
   const [isSignedIn, setIsSignedIn] = useState(true);
@@ -37,10 +41,12 @@ function App() {
               <Route path="/employees" element={<Employees />} />
               <Route path="/addemployee" element={<AddEmployees />} />
               <Route path="/addproduct" element={<AddProducts />} />
-              <Route
+              <Route path="/signup" element={<SignupPage />} />
+              <Route path="/login" element={<LoginPage />} />
+              <Route path="/admin" element={<AdminPanel />} />    
+             
                 path="/review/:employee/:foodItems"
                 element={<CustomerReview />}
-              />
             </>
           ) : (
             <>
