@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import "./CustomerReview.css";
 export default function CustomerReview() {
-  const { employee, products } = useParams();
-  const productArray = products.split(",");
+  const { employee, foodItems } = useParams();
+  const productArray = foodItems.split(",");
   const [displayHeaderAndNavbar, setDisplayHeaderAndNavbar] = useState(true);
 
   useEffect(() => {
