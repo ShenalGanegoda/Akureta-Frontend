@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import "./AddEmployee.css";
+import SuccessfulMessage from "../SuccessfulMessage/SuccessfulMessage";
 
 class AddEmployee extends React.Component {
   constructor(props) {
@@ -25,7 +26,7 @@ class AddEmployee extends React.Component {
   // Method to handle review submissions
   handleSubmit = async (event) => {
     event.preventDefault();
-
+  
     try {
       // Create an object with the form data
       const formData = {
@@ -37,10 +38,10 @@ class AddEmployee extends React.Component {
         employeePassword: this.state.employeePassword,
         image: this.state.image,
       };
-
+  
       // Convert form data to JSON
       const jsonData = JSON.stringify(formData);
-
+  
       // Making an HTTP POST request to the backend endpoint using Axios.
       const response = await axios.post(
         "https://akureta-backend.onrender.com/employeesignup",
@@ -51,11 +52,11 @@ class AddEmployee extends React.Component {
           },
         }
       );
-
+  
       if (!response.data) {
         throw new Error("Failed to add employee");
       }
-
+  
       // Resetting form fields after successful submission.
       this.setState({
         employeeName: "",
@@ -65,13 +66,15 @@ class AddEmployee extends React.Component {
         employeeUsername: "",
         employeePassword: "",
         image: null,
+        successMessageOpen: true, // Set success message flag to true
       });
-
+  
       console.log("Employee added successfully");
     } catch (error) {
       console.error("Error adding employee:", error);
     }
   };
+  
 
   // Method to handle image upload procedure
   handleImage = async (e) => {
@@ -80,6 +83,12 @@ class AddEmployee extends React.Component {
     console.log(base64)
     this.setState({ image: base64 });
   };
+
+  // Method to close the success message
+  closeSuccessMessage = () => {
+    this.setState({ successMessageOpen: false });
+  };
+  
 
   render() {
     return (
@@ -153,6 +162,9 @@ class AddEmployee extends React.Component {
               onChange={this.handleInput}
             ></input>
           </label>
+          {this.state.successMessageOpen && (
+            <SuccessfulMessage onClose={this.closeSuccessMessage} />
+          )}
           <button type="submit">Submit</button>
         </form>
       </div>
