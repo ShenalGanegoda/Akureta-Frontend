@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import "./CustomerReview.css";
 export default function CustomerReview() {
   const { employee, products } = useParams();
-  const productArray = products.split(",");
+  const productArray = products.split("/");
   const [displayHeaderAndNavbar, setDisplayHeaderAndNavbar] = useState(true);
 
   useEffect(() => {
@@ -23,6 +23,7 @@ export default function CustomerReview() {
     <div className="employee_food">
       <h1>Add Review</h1>
       <hr></hr>
+      <form>
       {/* Just one input field for employee */}
       <label>{employee}</label>
       <input placeholder="Add Comment"></input>
@@ -31,9 +32,10 @@ export default function CustomerReview() {
       {productArray.map((food) => (
         <div className="food">
           <label>{food}</label>
-          <input placeholder="Add Comment"></input>
+          <input type="submit" placeholder="Add Comment"></input>
         </div>
       ))}
+      </form>
     </div>
   );
 }

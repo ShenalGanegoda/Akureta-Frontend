@@ -1,27 +1,21 @@
 import { useState, useEffect } from "react";
-import "./GenerateQR.css";
-import QRCode from "react-qr-code";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import './GenerateQR.css'
 
 export default function GenerateQR() {
-  const [employees, setEmployees] = useState([]);
-  const [products, setProducts] = useState([]);
-  const [employee, setEmployee] = useState("");
-  const [foodItems, setFoodItems] = useState([]);
-  const [url, setUrl] = useState("");
-  const [qrIsVisible, setQrIsVisible] = useState(false);
+ const [employees, setEmployees] = useState([]);
+ const [products, setProducts] = useState([]);
+ const [employee, setEmployee] = useState("");
+ const [foodItems, setFoodItems] = useState([]);
 
-  useEffect(() => {
-    // Fetch employees and products from the backend when the component mounts
+ const navigate = useNavigate();
+
+ useEffect(() => {
     const fetchData = async () => {
       try {
-        const employeeResponse = await axios.get(
-          "https://akureta-backend.onrender.com/employeesignup"
-        );
-        const productResponse = await axios.get(
-          "https://akureta-backend.onrender.com/getProducts"
-        );
+        const employeeResponse = await axios.get("https://akureta-backend.onrender.com/employeesignup");
+        const productResponse = await axios.get("https://akureta-backend.onrender.com/getProducts");
         setEmployees(employeeResponse.data);
         setProducts(productResponse.data);
       } catch (error) {
@@ -30,27 +24,30 @@ export default function GenerateQR() {
     };
 
     fetchData();
-  }, []);
+ }, []);
 
-  const onEmployeeSelect = (event) => {
+ const onEmployeeSelect = (event) => {
     setEmployee(event.target.value);
-  };
+ };
 
-  const onFoodSelect = (event) => {
-    if (foodItems.includes(event.target.value)) return;
-    setFoodItems((currentFoodItems) => [
-      ...currentFoodItems,
-      event.target.value,
-    ]);
-  };
+ const onFoodSelect = (event) => {
+    const selectedFood = event.target.value;
+    if (!foodItems.includes(selectedFood)) {
+      setFoodItems([...foodItems, selectedFood]);
+    }
+ };
 
-  const onSubmit = () => {
-    let pathTo = `/review/${employee}/${foodItems}`;
-    setUrl(pathTo);
-    setQrIsVisible(true);
-  };
+ const onSubmit = () => {
+    if (!employee || foodItems.length === 0) {
+      alert("Please select an employee and at least one food item.");
+      return;
+    }
 
-  return (
+    // Navigate to ReviewPage and pass the selected employee and food items as state
+    navigate('/review', { state: { employee, foodItems } });
+ };
+
+ return (
     <div className="qr-main">
       <h1>Generate QR for Order</h1>
       <form>
@@ -58,35 +55,22 @@ export default function GenerateQR() {
           <label>Select Employee:</label>
           <select onChange={onEmployeeSelect} value={employee}>
             {employees.map((emp) => (
-              <option key={emp.id} value={emp.employeeName}>
-                {emp.employeeName}
-              </option>
+              <option key={emp.id} value={emp.employeeName}>{emp.employeeName}</option>
             ))}
           </select>
         </div>
-
         <div className="product-section">
           <label>Select Food:</label>
           <select onChange={onFoodSelect} multiple>
             {products.map((prod) => (
-              <option key={prod.id} value={prod.productName}>
-                {prod.productName}
-              </option>
+              <option key={prod.id} value={prod.productName}>{prod.productName}</option>
             ))}
           </select>
         </div>
       </form>
-
       <div className="qr-display">
-        <button className="form-submit" onClick={onSubmit}>
-          Generate QR
-        </button>
-        {qrIsVisible && <QRCode value={url} size={200}></QRCode>}
+        <button className="form-submit" onClick={onSubmit}>Generate QR</button>
       </div>
-
-      <Link to={url}>
-        <h1>{url}</h1>
-      </Link>
     </div>
-  );
+ );
 }
