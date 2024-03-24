@@ -1,11 +1,16 @@
 .header {
   float: right;
-  display: inline-flex;
+  display: flex;
+  flex-direction: row;
   align-items: center;
   justify-content: flex-end;
   background-color: rgb(14, 0, 140);
   width: 80vw;
-  height: 14vh;
+  height: 6.5rem;
+}
+.header-icons {
+  display: flex;
+  flex-direction: row;
 }
 .header li {
   display: inline-flex;
@@ -14,9 +19,16 @@
   padding: 2vh 4vh;
   font-size: 4vh;
 }
-
-.header img {
+.header-img {
+  width: 20rem;
+  height: fit-content;
+}
+.header-img img {
   display: none;
+  width: 10rem;
+  height: fit-content;
+}
+.header img {
   padding: 0vh 2vh;
 }
 
@@ -24,19 +36,52 @@
   color: rgb(255, 255, 255);
   transition: all 0.5s ease;
 }
-
+.menu-btn {
+  display: none;
+  justify-content: center;
+  padding: 0.1rem;
+  height: fit-content;
+}
+.menu-icon {
+  font-size: 1.4rem;
+}
 .header li a:hover {
   color: rgb(0, 68, 255);
   transform: scale(1.2);
+}
+@media (max-width: 1025px) {
+  .header {
+    height: 5rem;
+  }
 }
 
 @media (max-width: 769px) {
   .header {
     width: 100vw;
-    float: clear;
+    height: 5rem;
+    gap: 2rem;
     justify-content: space-between;
   }
-  .header img {
+  .header-img {
+    width: 20rem;
+    height: fit-content;
+  }
+  .header-img img {
     display: block;
+  }
+  .menu-btn {
+    display: block;
+  }
+}
+@media (max-width: 520px) {
+  .header-img {
+    width: 10rem;
+    height: fit-content;
+  }
+}
+@media (max-width: 360px) {
+  .header-img {
+    width: 8rem;
+    height: fit-content;
   }
 }

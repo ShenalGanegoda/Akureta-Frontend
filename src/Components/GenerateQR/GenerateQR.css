@@ -71,3 +71,19 @@
   justify-content: center;
   align-items: center;
 }
+@media (max-width: 1024px) {
+  .employee-section {
+    margin-bottom: 2rem;
+  }
+}
+@media (max-width: 769px) {
+  .qr-main {
+    width: 100%;
+  }
+}
+
+@media (max-width: 350px) {
+  .form-submit {
+    font-size: 0.8rem;
+  }
+}
