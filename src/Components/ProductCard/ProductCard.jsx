@@ -29,7 +29,10 @@ export default function ProductCard({ product, setProduct }) {
 
   return (
     <div className="product-card-container">
-      <img src={product.image} alt="Product Image" />
+      <div className="product-card-img">
+        <img src={product.image} alt="Product Image" />
+      </div>
+      
       <div>
         <h2>{product.productName}</h2>
       </div>

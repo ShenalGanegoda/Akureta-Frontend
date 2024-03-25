@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import "./AddProduct.css";
+import SuccessfulMessage from "../SuccessfulMessage/SuccessfulMessage";
 
 class AddProduct extends React.Component {
   constructor(props) {
@@ -9,7 +10,8 @@ class AddProduct extends React.Component {
       productName: "",
       category: "",
       aboutProduct: "",
-      image: null,
+      image: "",
+      successMessageOpen: false, // State to manage success message visibility
     };
   }
 
@@ -55,6 +57,7 @@ class AddProduct extends React.Component {
         category: "",
         aboutProduct: "",
         image: null,
+        successMessageOpen: true, // Show success message
       });
 
       console.log("Product added successfully");
@@ -64,58 +67,85 @@ class AddProduct extends React.Component {
   };
 
   // Method to handle image upload procedure
-  handleImage = (e) => {
+  handleImage = async (e) => {
     const file = e.target.files[0];
-    this.setState({ image: file });
+    const base64 = await convertToBase64(file);
+    console.log(base64);
+    this.setState({ image: base64 });
+  };
+
+  // Method to close the success message
+  closeSuccessMessage = () => {
+    this.setState({ successMessageOpen: false });
   };
 
   render() {
     return (
-      <div className="add-product">
-        <h1>AKURETA</h1>
-        <form onSubmit={this.handleSubmit}>
-          <label>
-            PRODUCT NAME:
-            <input
-              type="text"
-              name="productName"
-              value={this.state.productName}
-              onChange={this.handleInput}
-            ></input>
-          </label>
+      <div className="add-products-container">
+        <div className="add-product">
+          <h1>ADD PRODUCTS</h1>
+          <form onSubmit={this.handleSubmit}>
+            <label>
+              PRODUCT NAME:
+              <input
+                type="text"
+                name="productName"
+                value={this.state.productName}
+                onChange={this.handleInput}
+              ></input>
+            </label>
 
-          <label>
-            CATEGORY:
-            <input
-              type="text"
-              name="category"
-              value={this.state.category}
-              onChange={this.handleInput}
-            ></input>
-          </label>
+            <label>
+              CATEGORY:
+              <input
+                type="text"
+                name="category"
+                value={this.state.category}
+                onChange={this.handleInput}
+              ></input>
+            </label>
 
-          <label>
-            ABOUT PRODUCT:
-            <input
-              type="text"
-              name="aboutProduct"
-              value={this.state.aboutProduct}
-              onChange={this.handleInput}
-            ></input>
-          </label>
+            <label>
+              ABOUT PRODUCT:
+              <input
+                type="text"
+                name="aboutProduct"
+                value={this.state.aboutProduct}
+                onChange={this.handleInput}
+              ></input>
+            </label>
 
-          <label>
-            ADD IMAGE:
-            <input
-              type="file"
-              accept="image/*"
-              onChange={this.handleImage}
-            ></input>
-          </label>
-          <button type="submit">Submit</button>
-        </form>
+            <label>
+              ADD IMAGE:
+              <input
+                type="file"
+                accept="image/*"
+                onChange={this.handleImage}
+              ></input>
+            </label>
+            {this.state.successMessageOpen && (
+            <SuccessfulMessage onClose={this.closeSuccessMessage} />
+          )}
+            <button type="submit">Submit</button>
+          </form>
+          
+        </div>
       </div>
     );
   }
 }
+
 export default AddProduct;
+
+function convertToBase64(file) {
+  return new Promise((resolve, reject) => {
+    const fileReader = new FileReader();
+    fileReader.readAsDataURL(file);
+    fileReader.onload = () => {
+      resolve(fileReader.result);
+    };
+    fileReader.onerror = (error) => {
+      reject(error);
+    };
+  });
+}

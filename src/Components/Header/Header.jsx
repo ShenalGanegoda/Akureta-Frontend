@@ -15,11 +15,6 @@ function Header() {
             <TiHome />
           </Link>
         </li>
-        <li>
-          <a href="#">
-            <FaUserCircle />
-          </a>
-        </li>
       </ul>
     </div>
   );

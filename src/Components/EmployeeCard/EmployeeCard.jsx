@@ -36,7 +36,10 @@ export default function EmployeeCard({
 
   return (
     <div className="employee-card-container">
-      <img src={employee.image} alt="Employee Image" />
+      <div className="employee-card-container-img">
+        <img src={employee.image} alt="Employee Image" />
+      </div>
+      
       <div>
         <h2>{employee.employeeName}</h2>
       </div>
