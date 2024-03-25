@@ -48,7 +48,7 @@ export default function CustomerReview() {
     <div className="employee_food">
       <h1>Add Review</h1>
       <hr />
-      <label>Employee Review</label>
+      <label>{employee}</label>
       <input
         placeholder="Add Comment"
         value={employeeReview}
