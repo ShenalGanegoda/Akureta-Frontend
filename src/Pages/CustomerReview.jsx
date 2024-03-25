@@ -1,39 +1,78 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import "./CustomerReview.css";
+
 export default function CustomerReview() {
   const { employee, foodItems } = useParams();
   const productArray = foodItems.split(",");
-  const [displayHeaderAndNavbar, setDisplayHeaderAndNavbar] = useState(true);
+  const [employeeReview, setEmployeeReview] = useState("");
+  const [productReviews, setProductReviews] = useState({});
+  const [predictedRating, setPredictedRating] = useState(null);
 
-  useEffect(() => {
-    console.log("useEffect is running");
-    const params = new URLSearchParams(window.location.search);
-    const fromQR = params.get("fromQR");
-    console.log("fromQR", fromQR);
-    if (fromQR === "true") {
-      console.log("Set displayHeaderAndNavbar to false");
-      setDisplayHeaderAndNavbar(false);
-    }
-  }, []);
+  const handleEmployeeReviewChange = (e) => {
+    setEmployeeReview(e.target.value);
+  };
 
-  console.log("displayHeaderAndNavbar", displayHeaderAndNavbar);
+  const handleProductReviewChange = (productId, e) => {
+    const updatedProductReviews = {
+      ...productReviews,
+      [productId]: e.target.value,
+    };
+    setProductReviews(updatedProductReviews);
+  };
+
+  const handleReviewSubmit = async () => {
+    // Constructing the review object
+    const reviewData = {
+      employeeReview: employeeReview,
+      productReviews: productReviews,
+    };
+
+    // Sending a POST request to the backend
+    const response = await fetch(
+      "https://shielded-temple-55799-3c421ed2721d.herokuapp.com/predict",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(reviewData),
+      }
+    );
+
+    const data = await response.json();
+    setPredictedRating(data); // Setting the predicted rating received from the server
+  };
 
   return (
     <div className="employee_food">
       <h1>Add Review</h1>
-      <hr></hr>
-      {/* Just one input field for employee */}
-      <label>{employee}</label>
-      <input placeholder="Add Comment"></input>
-      <hr></hr>
-      {/* Dynamically render input fields for ordered food */}
-      {productArray.map((food) => (
-        <div className="food">
+      <hr />
+      <label>Employee Review</label>
+      <input
+        placeholder="Add Comment"
+        value={employeeReview}
+        onChange={handleEmployeeReviewChange}
+      />
+      <hr />
+      {productArray.map((food, index) => (
+        <div key={index} className="food">
           <label>{food}</label>
-          <input placeholder="Add Comment"></input>
+          <input
+            placeholder="Add Comment"
+            value={productReviews[food] || ""}
+            onChange={(e) => handleProductReviewChange(food, e)}
+          />
         </div>
       ))}
+      <hr />
+      <button onClick={handleReviewSubmit}>Submit Review</button>
+      <hr />
+      {predictedRating !== null && (
+        <div>
+          <h2>Predicted Rating: {predictedRating}</h2>
+        </div>
+      )}
     </div>
   );
 }
