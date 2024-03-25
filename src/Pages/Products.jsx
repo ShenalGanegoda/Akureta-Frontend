@@ -41,9 +41,7 @@ export default function Products() {
       ) : (
         <ProductList setProduct={setProduct} />
       )}
-      {/* Input for Image upload */}
-      <input type="file" onChange={retrieveAndSaveImage} />
-      {/* <Outlet/> */}
+      
     </div>
   );
 }
