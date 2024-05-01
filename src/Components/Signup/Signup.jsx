@@ -49,6 +49,10 @@ const Signup = ({ onSignIn }) => {
     setPassword(e.target.value);
   };
 
+  const logInOnSubmit = () => {
+    onSignIn(true);
+  };
+
   return (
     <div className="package">
       <form onSubmit={handleSignIn} id="form-content">
@@ -75,7 +79,9 @@ const Signup = ({ onSignIn }) => {
           <MdLock className="icon" />
         </div>
 
-        <button type="submit">Sign in</button>
+        <button type="submit" onClick={logInOnSubmit}>
+          Sign in
+        </button>
       </form>
     </div>
   );

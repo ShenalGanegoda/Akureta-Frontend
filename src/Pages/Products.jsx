@@ -41,7 +41,6 @@ export default function Products() {
       ) : (
         <ProductList setProduct={setProduct} />
       )}
-      
     </div>
   );
 }
